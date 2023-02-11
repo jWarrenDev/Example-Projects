@@ -10,12 +10,54 @@ import SwiftUI
 
 struct CarDetailView: View {
     var body: some View {
-        Text("Car Detail View")
+        ZStack {
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color.baseGray)
+                .frame(height: 442)
+            
+            // this design is modified.  Not same as book
+            VStack(spacing: 10) {
+                VStack {
+                    Image("tesla-logo")
+                        .offset(y: -30)
+                    Image("tesla-s")
+                        .offset(y: -150)
+                    Image("tesla-text-logo")
+                        .offset(y: -160)
+                }
+                CarInfoView()
+            }.offset(y: -155)
+        }
+        .padding(.horizontal, 12)
+        .offset(y: 100)
+        .frame(height: 250)
     }
+    
+// Book:
+//    ZStack {
+//        RoundedRectangle(cornerRadius: 20)
+//            .fill(Color.baseGray)
+//            .frame(height: 442)
+//
+//        VStack(spacing: 10) {
+//            VStack {
+//                Image("tesla-logo").offset(y: 120)
+//                Image("tesla-s")
+//                Image("tesla-text-logo").offset(y: -10)
+//            }
+//            CarInfoView()
+//        }.offset(y: -155)
+//    }
+//    .padding(.horizontal, 12)
+//    .offset(y: 100)
+//    .frame(height: 250)
+//}
+    
 }
 
 struct CarDetailView_Previews: PreviewProvider {
     static var previews: some View {
         CarDetailView()
+            .previewLayout(.fixed(width: 400, height: 650))
     }
 }

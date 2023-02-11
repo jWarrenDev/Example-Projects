@@ -45,7 +45,7 @@ struct CarInfoDetailView: View {
             Text("Year")
                 .custom(font: .medium, size: 16)
                 .foregroundColor(.baseDarkGray)
-            Text("2023")
+            Text("2020")
                 .custom(font: .medium, size: 22)
             
         }
