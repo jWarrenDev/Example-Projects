@@ -16,15 +16,37 @@ struct FormView: View {
     }
 
     var body: some View {
-        Text("Form View")
+        VStack {
+            Form {
+                rentalPeriod
+            }
+        }
     }
 
+    var rentalPeriod: some View {
+        Section {
+            Picker(selection: $order.prototypeAmt, label: Text("Rental period")) {
+                ForEach(0..<order.prototypeArray.count, id: \.self) {
+                    value in
+                    Text("\(self.order.prototypeArray[value])").tag(value)
+                }
+            }
+        }.listRowBackground(Color.baseGray)
+    }
+    
+    var numberOfCars: some View {
+        Section {
+            Picker(selection: $order.prototypeAmt, label: Text("Number of cars")) {
+                
+            }
+        }
+    }
 
 }
 
 struct FormView_Previews: PreviewProvider {
     static var previews: some View {
-        FormView()
+        FormView().environmentObject(OrderViewModel())
     }
 }
 
